@@ -2,7 +2,8 @@ import pygame
 
 class PlayerController():
   def __init__(self):
-    self.position = (0,0)
+    #
+    self.position = (pygame.display.Info().current_w/2,pygame.display.Info().current_h/2)
 
   def UpdatePosition(self, x, y, playerSpeed, deltaTime):
 
