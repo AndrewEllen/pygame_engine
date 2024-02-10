@@ -9,8 +9,7 @@ class PlayerObject():
     # 
     self.playerWidth = 60
     self.playerHeight = 100
-    self.playerModel = Rect(self.controller.position[0], self.controller.position[1], self.playerWidth, self.playerHeight)
-    self.playerColour = (255,0,0)
+    self.playerModel = pygame.image.load("player.png")
     self.playerSpeed = 100
 
   def MovePlayer(self, deltaTime):
@@ -25,6 +24,10 @@ class PlayerObject():
     if keys[pygame.K_a]:
       self.controller.UpdatePosition(-1, 0, self.playerSpeed, deltaTime)
 
-  def renderPlayer(self, screen, colour, model):
-    self.playerModel = Rect(self.controller.position[0], self.controller.position[1], self.playerWidth, self.playerHeight)
-    pygame.draw.rect(screen, colour, model)
+  def renderPlayer(self, screen):
+    #self.playerModel = Rect(self.controller.position[0], self.controller.position[1], self.playerWidth, self.playerHeight)
+
+    screen.blit(self.playerModel, (self.controller.position[0], self.controller.position[1]))
+
+    #Flip updates the whole screen, you could use update which allows only a portion to update with given arguments
+    pygame.display.flip()

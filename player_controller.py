@@ -10,3 +10,6 @@ class PlayerController():
     current_y = self.position[1]
 
     self.position = (current_x + (x * playerSpeed) * deltaTime, current_y + (y * playerSpeed) * deltaTime)
+
+    #Console log of position
+    print(self.position)
