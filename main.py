@@ -11,20 +11,19 @@ pygame.init()
 screen = pygame.display.set_mode((1280, 720))
 pygame.display.set_caption("Game Engine Example")
 clock = pygame.time.Clock()
-
 background = pygame.image.load("map.png")
 player = PlayerObject("Player")
 
 def playerHandler(deltaTime):
   player.MovePlayer(deltaTime)
-  player.renderPlayer(screen)
+  player.renderPlayer(screen, background)
 
 
 
 def main_loop():
   while True:
     # resetting the screen each loop
-    screen.blit(background, (0, 0))
+    #screen.blit(background, (0, 0))
     # 60 is the fps
     deltaTime = clock.tick(60)/1000
     
