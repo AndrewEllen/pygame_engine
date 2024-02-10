@@ -14,15 +14,27 @@ clock = pygame.time.Clock()
 
 player = PlayerObject("Player")
 
+def playerHandler(deltaTime):
+  player.MovePlayer(deltaTime)
+  player.renderPlayer(screen, player.playerColour, player.playerModel)
+
+
+
 def main_loop():
   while True:
+    # resetting the screen each loop
+    screen.fill((0,0,0))
     # 60 is the fps
     deltaTime = clock.tick(60)/1000
     
     EventHandler()
-    player.MovePlayer(deltaTime)
+    playerHandler(deltaTime)
+
     
     print(player.controller.position)
+
+    #Flip updates the whole screen, you could use update which allows only a portion to update with given arguments
+    pygame.display.flip()
 
 
 main_loop()
